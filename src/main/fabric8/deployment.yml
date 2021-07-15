@@ -1,0 +1,14 @@
+spec:
+  template:
+    spec:
+      serviceAccountName: "${fabric8.custom.app.name}"
+      containers:
+      -
+          envFrom:
+            - configMapRef:
+                name: camel-config
+            - secretRef:
+                name: camel-config
+          env:
+          - name: SPRING_APPLICATION_JSON
+            value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
