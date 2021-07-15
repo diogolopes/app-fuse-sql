@@ -1,3 +1,8 @@
+
+```
+Criar banco de dados MYSQL no openshift
+
+```
 oc process openshift//mysql-persistent \
   MEMORY_LIMIT=1Gi \
   MYSQL_USER=database \
@@ -22,7 +27,10 @@ mysql> use INFOCONV
 mysql> show tables;
 Empty set (0.01 sec)
 
+```
+Criar e popular a tabela
 
+```
 CREATE TABLE VW_INFOCONV_PESSOA_JURIDICA (
     ID_REGISTRO int,
     CNPJ varchar(14)
