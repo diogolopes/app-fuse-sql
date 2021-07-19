@@ -149,8 +149,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -183,6 +183,7 @@
 			<plugin>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>3.4.4</version>
 				<executions>
 					<execution>
 						<id>generate-sources-cpf</id>
@@ -191,8 +192,16 @@
 							<sourceRoot>src/main/java</sourceRoot>
 							<wsdlOptions>
 								<wsdlOption>
-									<wsdl>${basedir}/src/main/resources/wsdl/cnpj_hom.wsdl</wsdl>
 									<wsdl>${basedir}/src/main/resources/wsdl/cpf_hom.wsdl</wsdl>
+									<packagenames>
+										<packagename>https://hom-infoconv.receita.fazenda.gov.br/ws/cpf/=com.infoconv.cpf</packagename>
+									</packagenames>
+								</wsdlOption>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/cnpj_hom.wsdl</wsdl>
+									<packagenames>
+										<packagename>https://hom-infoconv.receita.fazenda.gov.br/ws/cnpj/=com.infoconv.cnpj</packagename>
+									</packagenames>
 								</wsdlOption>
 							</wsdlOptions>
 						</configuration>
@@ -200,6 +209,25 @@
 							<goal>wsdl2java</goal>
 						</goals>
 					</execution>
+<!-- 					<execution> -->
+<!-- 						<id>generate-sources-cnpj</id> -->
+<!-- 						<phase>generate-sources</phase> -->
+<!-- 						<configuration> -->
+<!-- 							<sourceRoot>src/main/java</sourceRoot> -->
+<!-- 							<wsdlOptions> -->
+<!-- 								<wsdlOption> -->
+<!-- 									<wsdl>${basedir}/src/main/resources/wsdl/cnpj_hom.wsdl</wsdl> -->
+<!-- 									<packagenames> -->
+<!-- 										Package Mappings -->
+<!-- 										<packagename>https://hom-infoconv.receita.fazenda.gov.br/ws/cnpj/=com.infoconv.cnpj</packagename> -->
+<!-- 									</packagenames> -->
+<!-- 								</wsdlOption> -->
+<!-- 							</wsdlOptions> -->
+<!-- 						</configuration> -->
+<!-- 						<goals> -->
+<!-- 							<goal>wsdl2java</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
 				</executions>
 			</plugin>
 
