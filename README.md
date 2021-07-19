@@ -71,5 +71,7 @@ Em caso do erro peça para o cluster-admin executar o comando:
 oc import-image openshift/fuse7-java-openshift:1.8 --from=registry.access.redhat.com/fuse7/fuse-java-openshift --confirm -n openshift 
 ```
 
+Infelizmente não conseguimos rodar sem alterar o arquivo original java.security do Java 8.
+Subistituir o arquivo de sua JDK 8 por este contido em resources/jdk/java.security
 
 
